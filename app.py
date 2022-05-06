@@ -1,13 +1,16 @@
 import os
 
-from flask import Flask, render_template
+from flask import Flask, jsonify, render_template
 from flask_cors import CORS
+
+from backend.database.model import setup_db
 
 
 def create_app(test_config=None):
     # create and configure the app
     template_dir = os.path.abspath('frontend/templates')
     app = Flask(__name__, template_folder=template_dir)
+    db = setup_db(app)
 
     CORS(app, resources={r"*": {"origins": "*"}})
 
