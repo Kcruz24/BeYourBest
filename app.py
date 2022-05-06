@@ -25,16 +25,16 @@ def create_app(test_config=None):
         return res
 
     @app.route('/')
-    def hello_world():
+    def home():
         return render_template('index.html')
 
     @app.route('/30-day-challenge')
     def challenge_30():
-        return render_template('30_day_challenge.html')
+        return render_template('pages/30_day_challenge.html')
 
     @app.route('/60-day-challenge')
     def challenge_60():
-        return render_template('60_day_challenge.html')
+        return render_template('pages/60_day_challenge.html')
 
     @app.route('/90-day-challenge')
     def challenge_90():
