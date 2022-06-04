@@ -3,29 +3,39 @@
 {% block title %}Be Your Best {% endblock %}
 
 {% block content %}
-    <div class="container position-relative">
-        <h1 class="display-1 text-center mt-5">Be Your Best</h1>
-    </div>
+    <div class="container">
+        <h1 class="display-1 text-center mt-2">Be Your Best</h1>
+        <div class="container px-4 position-absolute top-50 start-50 translate-middle">
 
-    <div class="container px-4 position-absolute top-50 start-50 translate-middle">
-        <div class="row gx-5">
-            <div class="col">
-                <a href="/30-day-challenge"
-                   class="p-3 bg-light list-group-item display-3 text-center">
-                    30 Day Challenge</a>
+            <div class="row gx-5">
+                <div class="col">
+                    <a href="/30-day-challenge"
+                       class="p-3 bg-light list-group-item display-3 text-center">
+                        30 Day Challenge</a>
+                </div>
+
+                <div class="col">
+                    <a href="/60-day-challenge"
+                       class="p-3 bg-light list-group-item display-3 text-center">
+                        60 Day Challenge</a>
+                </div>
+
+                <div class="col">
+                    <a href="/90-day-challenge"
+                       class="p-3 bg-light list-group-item display-3 text-center">
+                        90 Day Challenge</a>
+                </div>
             </div>
 
-            <div class="col">
-                <a href="/60-day-challenge"
-                   class="p-3 bg-light list-group-item display-3 text-center">
-                    60 Day Challenge</a>
-            </div>
 
-            <div class="col">
-                <a href="/90-day-challenge"
-                   class="p-3 bg-light list-group-item display-3 text-center">
-                    90 Day Challenge</a>
-            </div>
         </div>
+
+        <div class="d-grid gap-2 col-6 mx-auto mt-5">
+            <a role="button" class="btn btn-outline-secondary btn-lg"
+               href="/users">
+                Create User
+            </a>
+        </div>
+
     </div>
 {% endblock %}
