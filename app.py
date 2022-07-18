@@ -30,6 +30,13 @@ def create_app(test_config=None):
     def home():
         return render_template('index.html')
 
+    @app.route('/users')
+    def user_form():
+        try:
+            return render_template('forms/create_user.html')
+        except Exception as ex:
+            print('EXCEPTION', ex)
+            abort(404)
     @app.route('/30-day-challenge')
     def challenge_30():
         return render_template('pages/30_day_challenge.html')
