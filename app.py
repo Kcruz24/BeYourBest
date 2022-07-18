@@ -10,6 +10,8 @@ def create_app(test_config=None):
     # create and configure the app
     template_dir = os.path.abspath('frontend/templates')
     app = Flask(__name__, template_folder=template_dir)
+    app.config['EXPLAIN_TEMPLATE_LOADING'] = True
+    app.config['SECRET_KEY'] = 'supposed_to_be_secret'
     db = setup_db(app)
 
     CORS(app, resources={r"*": {"origins": "*"}})
