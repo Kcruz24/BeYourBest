@@ -37,6 +37,33 @@ def create_app(test_config=None):
         except Exception as ex:
             print('EXCEPTION', ex)
             abort(404)
+
+    @app.route('/users', methods=['POST'])
+    def create_user_profile():
+        try:
+            print('REQUEST FORM', request.form)
+
+            get_first_name = request.form.get('firstName')
+            get_last_name = request.form.get('lastName')
+            get_username = request.form.get('username')
+            get_email = request.form.get('email')
+            get_streak = request.form.get('streak')
+
+            user = {"firstName": get_first_name,
+                    "lastName": get_last_name,
+                    "username": get_username,
+                    "email": get_email,
+                    "streak": get_streak}
+
+            db.users.insert_one(user)
+
+            flash('Your profile was created successfully!')
+
+            return render_template('index.html')
+
+        except Exception as ex:
+           abort(500)
+
     @app.route('/30-day-challenge')
     def challenge_30():
         return render_template('pages/30_day_challenge.html')
