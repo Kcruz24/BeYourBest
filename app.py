@@ -74,6 +74,15 @@ def create_app(test_config=None):
 
     @app.route('/90-day-challenge')
     def challenge_90():
-        return render_template('90_day_challenge.html')
+        try:
+            db_res = list(db.users.find())
+
+            for user in db_res:
+                user['_id'] = str(user['_id'])
+
+            return render_template('pages/90_day_challenge.html', users=db_res)
+
+        except Exception as ex:
+            abort(500)
 
     return app
